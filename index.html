@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ditya Varan Shop</title>
+  <style>
+    /* ================== RESET ================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      line-height: 1.6;
+      background: #fffdfd;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul { list-style: none; }
+
+    /* ================== NAVBAR ================== */
+    header {
+      background: linear-gradient(90deg, #f9a8d4, #fbcfe8);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 28px;
+      font-weight: bold;
+      color: #6b21a8;
+    }
+    nav ul {
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      font-weight: 600;
+      color: #4a044e;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #fff;
+    }
+
+    /* ================== HERO ================== */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 100px 20px;
+      text-align: center;
+      background: url('https://images.unsplash.com/photo-1604014237744-8e94cf236503?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      color: white;
+    }
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .hero button {
+      padding: 12px 28px;
+      background: #ec4899;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .hero button:hover { background: #be185d; }
+
+    /* ================== SECTION ================== */
+    section {
+      padding: 80px 50px;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 36px;
+      color: #6b21a8;
+      position: relative;
+    }
+    section h2::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: #ec4899;
+      display: block;
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+
+    /* ================== ABOUT ================== */
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: center;
+      gap: 40px;
+    }
+    .about img {
+      width: 60%;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    .about div p {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    /* ================== SERVICES ================== */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .service-card {
+      padding: 30px;
+      border-radius: 20px;
+      background: #fce7f3;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .service-card:hover { transform: translateY(-5px); }
+    .service-card h3 {
+      margin-bottom: 15px;
+      font-size: 22px;
+      color: #be185d;
+    }
+
+    /* ================== PRODUCTS ================== */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .product {
+      border: 1px solid #f3e8ff;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .product:hover { box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .product h4 { margin-bottom: 10px; }
+    .product p { margin-bottom: 15px; }
+    .product button {
+      background: #a21caf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* ================== GALLERY ================== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* ================== CONTACT ================== */
+    .contact form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .contact input,
+    .contact textarea {
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .contact button {
+      padding: 15px;
+      background: #ec4899;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .contact button:hover { background: #be185d; }
+
+    /* ================== FOOTER ================== */
+    footer {
+      background: #6b21a8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { flex-direction: column; }
+      nav ul { flex-wrap: wrap; justify-content: center; }
+      .hero h2 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== NAVBAR ========== -->
+  <header>
+    <h1>Ditya Varan Shop</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section id="home" class="hero">
+    <h2>Welcome to Ditya Varan Shop</h2>
+    <p>Beauty Parlor + Boutique – One Stop for Elegance</p>
+    <button onclick="scrollToSection('products')">Shop Now</button>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about">
+      <img src="B.jpg" alt="about">
+      <div>
+        <p><strong>Ditya Varan Shop</strong> is your trusted partner for all things fashion and beauty. From the latest boutique trends to premium beauty parlor services, we bring luxury to your doorstep.</p>
+        <p>Our team is dedicated to making you look and feel your best with carefully selected clothing, accessories, and beauty treatments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>Hair Styling</h3>
+        <p>Professional hairstyling and treatments tailored to your look.</p>
+      </div>
+      <div class="service-card">
+        <h3>Makeup</h3>
+        <p>Bridal and party makeup services with premium products.</p>
+      </div>
+      <div class="service-card">
+        <h3>Boutique</h3>
+        <p>Trendy dresses and custom designs for all occasions.</p>
+      </div>
+      <div class="service-card">
+        <h3>Spa</h3>
+        <p>Relax and rejuvenate with our soothing spa therapies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRODUCTS ========== -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="product">
+        <img src="E.jpg" alt="Dress">
+        <h4>Designer Dress</h4>
+        <p>Elegant party wear dress.</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="F.jpg" alt="Jewelry">
+        <h4>Gold Necklace</h4>
+        <p>Premium handcrafted necklace.</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="G.jpg" alt="Cosmetics">
+        <h4>Cosmetic Kit</h4>
+        <p>Complete beauty kit with premium products.</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY ========== -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="A.png" alt="gallery1">
+      <img src="B.jpg" alt="gallery2">
+      <img src="C.png" alt="gallery3">
+      <img src="D.jpg" alt="gallery4">
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2025 Ditya Varan Shop | Designed with ❤️</p>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
+    // Form handler
+    function sendMessage(e) {
+      e.preventDefault();
+      alert("Thank you! Your message has been sent.");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
